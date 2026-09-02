@@ -7199,7 +7199,7 @@ z
 </div>
 
 <h2>Method</h2>
-<p>The August 2026 Datenstamm and Limitierungen files were downloaded from the BAG electronic services platform as Excel, parsed in Python with openpyxl, and analysed with pandas and scipy. Pack sizes were extracted from free-text package descriptions with a regular-expression parser that multiplies all quantities in the string — so "5 Fertspr 3 ml" resolves correctly to 15 ml — and succeeded on 10,403 of 10,405 records. Generic alternatives were matched within ATC code, taking the lowest-priced product flagged as a generic. Correlations are Spearman rank, appropriate here because the price distribution is heavily skewed.</p>
+<p>The August 2026 Datenstamm and Limitierungen files were downloaded from the BAG electronic services platform as Excel, parsed in Python with openpyxl, and analysed with pandas and scipy. Pack sizes were extracted from free-text package descriptions with a regular-expression parser that multiplies all quantities in the string — so "5 Fertspr 3 ml" resolves correctly to 15 ml — and succeeded on 10,403 of 10,405 records. Generic alternatives were matched within ATC code and pack size, taking the lowest-priced product flagged as a generic. An earlier version of this analysis matched on ATC code alone, which compared packs of different sizes and overstated the median saving; that figure has been corrected. Correlations are Spearman rank, appropriate here because the price distribution is heavily skewed.</p>
 <p>The same cleaned dataset powers <a href="https://abbie122.github.io/slcheck">SLCheck</a>, a lookup tool I built for the same list.</p>
 
 </main>
