@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How I work — Abigail Anim</title>
+<meta name="description" content="The dataset behind my projects, the five steps I repeat every month, and the questions I'm still working on.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#17233F;--ink-2:#5A6480;--ink-3:#8A93A8;
+  --paper:#FDF8EF;--paper-2:#FBEEDC;--paper-3:#FDF6EA;--line:#EFE1CE;--line-2:#E3D5C0;
+  --marigold:#F2A63B;--teal:#1B7468;--rust:#C2582C;--white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:'Karla',system-ui,sans-serif;font-size:17.5px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1100px;margin:0 auto;padding:0 40px}
+
+header{position:sticky;top:0;z-index:50;background:rgba(253,248,239,.93);backdrop-filter:blur(10px)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:24px;height:80px}
+.mark{font-family:'Fraunces',serif;font-weight:700;font-size:25px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.mark span{color:var(--marigold)}
+nav{display:flex;gap:30px;flex-wrap:wrap}
+nav a{color:var(--ink);text-decoration:none;font-size:16px;font-weight:500;padding-bottom:3px;border-bottom:1.5px solid transparent}
+nav a:hover,nav a:focus-visible{border-bottom-color:var(--marigold)}
+
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--teal);margin:0 0 22px}
+h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(38px,6.4vw,66px);
+  line-height:1.04;letter-spacing:-.032em;margin:0 0 28px}
+h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(29px,4.2vw,44px);
+  line-height:1.12;letter-spacing:-.025em;margin:0 0 24px}
+h4{font-family:'Fraunces',serif;font-weight:600;font-size:19px;margin:0 0 8px;letter-spacing:-.01em}
+p{margin:0 0 20px;max-width:64ch}
+.lede{font-size:21px;line-height:1.6;color:var(--ink-2);max-width:58ch}
+.mono{font-family:'JetBrains Mono',monospace;font-size:13.5px;color:var(--ink-2)}
+
+section{padding:88px 0;border-top:1px solid var(--line)}
+.top{padding:60px 0 84px;border-top:0}
+
+.panel{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:36px;margin-top:34px}
+.cover{display:grid;grid-template-columns:210px 1fr;gap:32px;align-items:center}
+.cover-file{background:var(--paper-2);border-radius:16px;padding:26px}
+.cover-file .n{font-size:17px;font-weight:600}
+.bars{display:flex;flex-direction:column;gap:18px}
+.barrow{display:grid;grid-template-columns:100px 1fr;gap:16px;align-items:center}
+.barlabel{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--rust)}
+.barwrap{display:flex;align-items:center}
+.bar{display:flex;align-items:center;border-radius:8px;overflow:hidden;min-height:48px;flex:1}
+.bar .fill{background:var(--teal);color:#fff;padding:13px 18px;font-weight:600;font-size:15.5px;flex:0 0 88%}
+.bar .rest{background:var(--line-2);flex:1;min-height:48px}
+.bar.full{background:var(--paper-2);padding:13px 18px;font-weight:600;font-size:15.5px}
+.bar-after{font-size:15px;color:var(--ink-2);padding-left:14px;white-space:nowrap}
+
+.tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;
+  text-transform:uppercase;padding:8px 17px;border-radius:999px;margin-bottom:18px}
+.tag.teal{background:#E8F1EE;color:var(--teal)}
+.tag.amber{background:var(--paper-2);color:#8A5A12}
+.fcard{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:36px 40px;margin-top:24px}
+.numbers{display:flex;gap:56px;flex-wrap:wrap;margin:26px 0 6px}
+.num .v{font-family:'Fraunces',serif;font-size:48px;font-weight:700;line-height:1;letter-spacing:-.02em}
+.num.old .v{color:var(--ink-3);text-decoration:line-through;text-decoration-color:var(--rust)}
+.num.new .v{color:var(--teal)}
+.num .k{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--ink-2);margin-top:10px;line-height:1.6}
+.split{display:flex;border-radius:10px;overflow:hidden;margin-top:10px}
+.split .a{background:var(--teal);color:#fff;padding:16px 20px;font-weight:700;font-size:16px;flex:0 0 84.7%}
+.split .b{background:var(--paper-2);flex:1}
+.splitnote{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--ink-3);text-align:right;margin-top:8px}
+.dots{display:flex;gap:36px;flex-wrap:wrap;margin-top:24px}
+.dot{display:flex;align-items:center;gap:12px;font-size:16px}
+.dot i{width:15px;height:15px;border-radius:50%;flex:none}
+.dot .tl{background:var(--teal)}.dot .rs{background:var(--rust)}
+ul.facts{list-style:none;padding:0;margin:0 0 20px}
+ul.facts li{display:flex;gap:14px;padding:9px 0;font-size:16.5px;line-height:1.5}
+ul.facts li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--marigold);margin-top:11px}
+.note{background:var(--paper-2);border-left:4px solid var(--teal);border-radius:0 12px 12px 0;padding:20px 24px;margin:22px 0}
+.note .h{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.note p{margin:0;font-size:16px;color:var(--ink)}
+.links{display:flex;gap:26px;flex-wrap:wrap;margin-top:22px}
+.links a{color:var(--teal);font-weight:600;text-decoration:none;border-bottom:2px solid var(--marigold);padding-bottom:2px}
+.links a:hover{background:var(--paper-2)}
+.meta{margin-top:24px;padding-top:18px;border-top:1px dashed var(--line-2);
+  font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--ink-3);display:flex;gap:26px;flex-wrap:wrap}
+.steps5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:34px}
+.s5{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:28px 20px;text-align:center}
+.s5:last-child{background:var(--paper-2)}
+.s5 .ic{width:46px;height:46px;border-radius:12px;background:var(--paper-2);
+  display:grid;place-items:center;margin:0 auto 16px;color:var(--teal)}
+.s5:last-child .ic{background:var(--white);color:var(--rust)}
+.s5 p{font-size:14.5px;line-height:1.55;color:var(--ink-2);margin:0;max-width:none}
+
+.qrow{display:flex;justify-content:space-between;align-items:center;gap:24px;
+  background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px 28px;margin-top:14px}
+.qrow .q{font-weight:600;font-size:17px}
+.qrow .st{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-3);white-space:nowrap}
+
+.cols4{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;margin-top:34px}
+.cols4 .k{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+.cols4 ul{list-style:none;margin:0;padding:0}
+.cols4 li{padding:12px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.45}
+
+.de{background:var(--ink);color:#F2EFE8;border-radius:20px;padding:46px 50px;margin-top:40px}
+.de h4{color:#fff;font-size:27px;margin-bottom:18px}
+.de p{color:#D8D5CE;max-width:72ch;margin:0}
+.de b{color:#fff}
+
+.back{display:inline-block;margin-top:44px;color:var(--teal);font-weight:600;
+  text-decoration:none;border-bottom:2px solid var(--marigold);padding-bottom:2px}
+.back:hover{background:var(--paper-2)}
+
+footer{padding:40px 0 70px;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--ink-3)}
+:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+@media(max-width:1000px){.steps5{grid-template-columns:repeat(2,1fr)}.cols4{grid-template-columns:repeat(2,1fr);gap:32px}}
+@media(max-width:700px){
+  body{font-size:16.5px}
+  .wrap{padding:0 22px}
+  .bar-nav{height:auto}
+  .bar{min-height:44px}
+  header .bar{height:auto;padding:18px 0;flex-direction:column;align-items:flex-start;gap:14px}
+  nav{gap:20px}
+  section{padding:62px 0}
+  .top{padding:36px 0 60px}
+  .panel{padding:24px}
+  .cover{grid-template-columns:1fr;gap:22px}
+  .barrow{grid-template-columns:1fr;gap:8px}
+  .steps5,.cols4{grid-template-columns:1fr}
+  .qrow{flex-direction:column;align-items:flex-start;gap:8px}
+  .de{padding:30px 26px}
+}
+</style>
+</head>
+<body>
+
+<header><div class="wrap bar">
+  <a class="mark" href="index.html">Abigail Anim<span>.</span></a>
+  <nav>
+    <a href="index.html#about">About</a>
+    <a href="index.html#work">Work</a>
+    <a href="method.html">How I work</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</div></header>
+
+<main>
+
+<div class="top"><div class="wrap">
+  <p class="eyebrow">The dataset</p>
+  <h1>One government file decides<br>what Swiss insurance pays for.</h1>
+  <p class="lede">It is called the Spezialitätenliste. If a medicine is on it, insurance covers most of the cost. If it is not, the patient pays the whole price. The file is public and updated every month, but almost impossible to read in its raw form.</p>
+
+  <div class="panel">
+    <div class="cover">
+      <div class="cover-file">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C2582C" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
+        <h4 style="margin-top:14px">The list</h4>
+        <div class="n">10,405 medicines</div>
+        <div class="mono" style="font-size:12.5px">updated every month</div>
+      </div>
+      <div class="bars">
+        <div class="barrow">
+          <div class="barlabel">on the list →</div>
+          <div class="barwrap">
+            <div class="bar"><span class="fill">insurance pays 90%</span><span class="rest"></span></div>
+            <span class="bar-after">patient pays 10%</span>
+          </div>
+        </div>
+        <div class="barrow">
+          <div class="barlabel">not on it →</div>
+          <div class="bar full">patient pays all of it</div>
+        </div>
+      </div>
+    </div>
+    <p class="mono" style="margin:28px 0 0;text-align:center">Nine million people are covered by this one file. Almost nobody outside the system reads it.</p>
+  </div>
+</div></div>
+
+<section><div class="wrap">
+  <p class="eyebrow">What I found</p>
+  <h2>Three things came out of it.</h2>
+
+  <article class="fcard">
+    <span class="tag amber">Corrected after publishing</span>
+    <h4 style="font-size:27px">I checked my own headline number. It was wrong by a factor of five.</h4>
+    <div class="numbers">
+      <div class="num old"><div class="v">51.8%</div><div class="k">what I first published<br>all 1,725 pairs</div></div>
+      <div class="num new"><div class="v">10.6%</div><div class="k">comparing like with like<br>264 pairs</div></div>
+    </div>
+    <p style="margin-top:22px">My first version asked how much cheaper a generic is than the original. It matched products by drug class alone, so a box of 100 tablets could be compared against a box of 10. That is not a saving, it is a smaller box.</p>
+    <ul class="facts">
+      <li><b>Same data, same formula.</b> The only change: both packs have to hold the same amount of medicine.</li>
+      <li><b>80%</b> of the pairs I first counted were comparing different quantities.</li>
+      <li><b>104</b> of them matched an injection to a tablet.</li>
+    </ul>
+    <div class="note">
+      <div class="h">What this cannot show</div>
+      <p>264 pairs is a small slice of the list, not a random sample. And list prices are not what the system actually spends.</p>
+    </div>
+  </article>
+
+  <article class="fcard">
+    <span class="tag teal">Analysis</span>
+    <h4 style="font-size:27px">One percent of the products carry most of the price.</h4>
+    <div style="margin-top:22px">
+      <div class="mono" style="margin-bottom:10px">share of all list prices added together</div>
+      <div class="split"><div class="a">84.7% sits in the top 1% of products</div><div class="b"></div></div>
+      <div class="splitnote">the other 99%</div>
+    </div>
+    <div class="dots">
+      <span class="dot"><i class="tl"></i><b>CHF&nbsp;48.90</b>&nbsp;typical pack</span>
+      <span class="dot"><i class="rs"></i><b>CHF&nbsp;1,707</b>&nbsp;average, dragged up by a few cancer drugs</span>
+    </div>
+    <p style="margin-top:24px">When the average is thirty-five times the typical price, the average has stopped describing anything real. The list is really two lists: thousands of cheap everyday medicines, and a small group of very expensive ones where nearly all the money sits.</p>
+  </article>
+
+  <article class="fcard">
+    <span class="tag teal">Analysis</span>
+    <h4 style="font-size:27px">Expensive medicines come with more conditions attached.</h4>
+    <ul class="facts" style="margin-top:20px">
+      <li>Costlier drug classes carry more prescribing restrictions. <b>ρ = 0.56</b>, but with only 14 classes the plausible range runs from 0.04 to 0.84. A pattern, not a finding.</li>
+      <li>Price does <b>not</b> predict whether a generic exists. <b>ρ = −0.19</b>, p = 0.51. I expected the opposite, and reported it anyway.</li>
+      <li>Pack sizes read out of German free text on <b>10,403 of 10,405</b> records.</li>
+    </ul>
+    <div class="note">
+      <div class="h">What this cannot show</div>
+      <p>The list records prices, not how much of each medicine is actually used. Public prices also leave out the confidential discounts negotiated behind them.</p>
+    </div>
+    <div class="links"><a href="analysis.html">Read the full write-up with the charts</a></div>
+    <div class="meta"><span>Python · pandas · scipy</span><span>BAG/FOPH extract, 13 Aug 2026</span><span>10,405 products</span></div>
+  </article>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">How I work</p>
+  <h2>The same five steps every month.</h2>
+  <p class="lede">The file changes monthly, so the process has to be repeatable and it has to fail loudly when something is wrong.</p>
+  <div class="steps5">
+    <div class="s5">
+      <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></span>
+      <h4>Download</h4><p>One folder per month. Nothing gets overwritten.</p>
+    </div>
+    <div class="s5">
+      <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M8 3H7a2 2 0 00-2 2v4a2 2 0 01-2 2 2 2 0 012 2v4a2 2 0 002 2h1M16 3h1a2 2 0 012 2v4a2 2 0 002 2 2 2 0 00-2 2v4a2 2 0 01-2 2h-1"/></svg></span>
+      <h4>Read</h4><p>If a record will not parse, the code stops rather than guesses.</p>
+    </div>
+    <div class="s5">
+      <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
+      <h4>Check</h4><p>A price that jumped overnight is a bug, not a policy change.</p>
+    </div>
+    <div class="s5">
+      <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20V10M10 20V4M16 20v-7M22 20V8"/></svg></span>
+      <h4>Analyse</h4><p>Write down what the data cannot show before writing what it does.</p>
+    </div>
+    <div class="s5">
+      <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 12a9 9 0 019-9 9 9 0 016.7 3M21 12a9 9 0 01-9 9 9 9 0 01-6.7-3"/><path d="M21 3v6h-6M3 21v-6h6"/></svg></span>
+      <h4>Try to break it</h4><p>Attack my own headline number. This is where one of them fell over.</p>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">What is next</p>
+  <h2>Open questions, same dataset.</h2>
+  <div class="qrow"><span class="q">What does a standard daily dose cost, rather than a pack?</span><span class="st">in progress</span></div>
+  <div class="qrow"><span class="q">Who ends up paying the higher 40% share? It applies to 385 products, 3.7% of the list.</span><span class="st">next</span></div>
+  <div class="qrow"><span class="q">Twelve monthly copies of the file, to watch what happens to a price once a generic arrives.</span><span class="st">collecting</span></div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">Working with</p>
+  <div class="cols4">
+    <div><div class="k">Building</div><ul><li>Pipelines from official data sources</li><li>Reading messy free text</li><li>HTML, CSS, JavaScript</li><li>Git and GitHub</li></ul></div>
+    <div><div class="k">Learning</div><ul><li>SQL, rewriting my Python as queries</li><li>Record matching, scikit-learn</li></ul></div>
+  </div>
+
+  <a class="back" href="index.html">Back to the front page</a>
+</div></section>
+
+</main>
+
+<footer><div class="wrap">Built and maintained by Abigail Anim · Switzerland</div></footer>
+
+</body>
+</html>
